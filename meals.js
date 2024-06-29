@@ -31,7 +31,7 @@ export function checkDate(date) {
 }
 
 
-function createNewMeal(date, ingredients, name, servings) {
+export function createNewMeal(date, ingredients, name, servings) {
     // if (!isValidDateFormat(date)) {
     //     throw new Error('Error: date format is dd/mm/yyyy');
     // }
@@ -78,22 +78,22 @@ function sortMeals(meals) {
 
 
 // testing
-const date = '29/06/2024'
-const date2 = '30/06/2024'
-const invalidDate = '29/02/2022';
-const invalidDate2 = '29/02/2022';
-const ingredients = ['chicken'];
-const ingredients2 = ['chicken', 'rice', 'hi'];
-const servings = [ 1 ];
-const servings2 = [2, 2, 1];
+// const date = '29/06/2024'
+// const date2 = '30/06/2024'
+// const invalidDate = '29/02/2022';
+// const invalidDate2 = '29/02/2022';
+// const ingredients = ['chicken'];
+// const ingredients2 = ['chicken', 'rice', 'hi'];
+// const servings = [ 1 ];
+// const servings2 = [2, 2, 1];
 
-try {
-    const meal = createNewMeal(date2, ingredients, 'lunch', servings);
-    console.log("New Meal:", meal);
-} catch (error) {
-    console.error(error.message)
-}
-const meal2 = createNewMeal(date, ingredients2, 'dinner', servings2);
-console.log("New Meal:", meal2);
-console.log("Meals:", meals);
-console.log(sortMeals(meals));
+// try {
+//     const meal = createNewMeal(date2, ingredients, 'lunch', servings);
+//     console.log("New Meal:", meal);
+// } catch (error) {
+//     console.error(error.message)
+// }
+// const meal2 = createNewMeal(date, ingredients2, 'dinner', servings2);
+// console.log("New Meal:", meal2);
+// console.log("Meals:", meals);
+// console.log(sortMeals(meals));

@@ -23,9 +23,8 @@ export class DatesClass {
 export var ingredientsList = [];
 
 export class Ingredients {
-    constructor(caloriespergram, totalcalories, name) {
+    constructor(caloriespergram, name) {
         this.caloriespergram = caloriespergram;
-        this.totalcalories = totalcalories;
         this.name = name;
     }
 }
