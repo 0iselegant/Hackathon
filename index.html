@@ -1,0 +1,87 @@
+<body>
+    <h1>Health Logger</h1>
+    <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNXejhq_ur3HrzMRyRZqaP_cdzb3fES5I6Rg&s"/>
+    
+    <h2 style = "text-align: center;">29 June 2024</h2>
+    
+    <div>
+        <form id="mealForm">
+            <label for="mealName">Meal Name:</label>
+            <input type="text" id="mealName" name="mealName" required><br><br>
+            
+            <label for="calories">Calories:</label>
+            <input type="number" id="calories" name="calories" required><br><br>
+            
+            <label for="ingredients">Ingredients:</label><br>
+            <textarea id="ingredients" name="ingredients" rows="4" cols="50" required></textarea><br><br>
+            
+            <button type="submit">Log Meal</button>
+          </form>
+        
+          <br><br>
+    </div>
+
+
+    <table id = "table_header" border=  "1">
+        <tr>
+          <td>&nbsp;</td>
+          <td>Breakfast</td>
+          <td>Lunch</td>
+          <td>Dinner</td>
+          <td>Snacks</td>
+        </tr>
+        <tr>
+          <td>Calories:</td>
+          <td>300</td>
+          <td>800</td>
+          <td>900</td>
+          <td>30</td>
+        </tr>
+        <tr>
+          <td>Ingredients:</td>
+          <td>milk, oats, banana</td>
+          <td>rice chicken broccoli</td>
+          <td>YallahEat Halal Snack Pack,<br>
+             Beef, BBQ Sauce, Peri Peri Chipotle,
+              Toum (Garlic Sauce)</td>
+          <td>apple</td>
+        </tr>
+        <tr>
+          <td>temp</td>
+          <td>temp</td>
+          <td>temp</td>
+          <td>temp</td>
+          <td>temp</td>
+        </tr>
+        <tr>
+          <td>temp</td>
+          <td>temp</td>
+          <td>temp</td>
+          <td>temp</td>
+          <td>temp</td>
+        </tr>
+    </table>
+    
+    <script>
+        document.getElementById("mealForm").addEventListener("submit", function(event) {
+          event.preventDefault();
+    
+          // Get form values
+          var mealName = document.getElementById("mealName").value;
+          var calories = document.getElementById("calories").value;
+          var ingredients = document.getElementById("ingredients").value;
+    
+          // Add row to the table
+          var table = document.getElementById("mealList");
+          var newRow = table.insertRow();
+          newRow.innerHTML = `
+            <td>${mealName}</td>
+            <td>${calories}</td>
+            <td>${ingredients}</td>
+          `;
+    
+          // Clear form fields
+          document.getElementById("mealForm").reset();
+        });
+      
+</body>
