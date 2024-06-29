@@ -1,0 +1,92 @@
+<head>
+    <style>
+        #table_header {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 25% 25% 25%;
+        }
+        .meal_item {
+            height: 300px;
+            width: 180px;
+            border: 1px solid black;
+            border-radius: 10px;
+            padding: 2px;
+            background-color: pink;
+            display: inline-block;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .meal_name {
+            font-size: 1.5em;
+        }
+        .header {
+            background-color: pink;
+            height: 80px;
+            width: 100%;
+            padding-left: 30px;
+            margin-bottom: 50px;
+        }
+        
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Health Logger</h1>
+    </header>
+    
+    <form id="dateForm" action="/setDate" method="POST">
+        <input type="date" name="new_date" id="new_date">
+    </form>
+   
+    
+    <div><a href="/newMeal">Add a new meal</a></div>
+
+
+    <div id = "table_header">
+        <% meals.forEach(function(meal){ %>
+            <div class = "meal_item">
+                <div class = "meal_name"><%= meal.name %></div>
+                <div class = "meal_date"><%= meal.date %></div>
+                <div class = "meal_ingredients"><%= meal.ingredients %></div>
+            </div>
+        <% }); %>
+    </div>
+    
+    
+    <script> //this is from mr ChatGPT
+        document.getElementById("mealForm").addEventListener("submit", function(event) {
+          // Get form values
+          var mealName = document.getElementById("mealName").value;
+        //   var date = document.querySelector("#")
+          var date = new Date() 
+        //   var calories = document.getElementById("calories").value
+          var ingredients = document.getElementById("ingredients").value;
+
+          
+    
+          // Add row to the table
+          var table = document.getElementById("table_header");
+          var newRow = document.createElement("tr");
+          newRow.innerHTML = `
+            <td>${mealName}</td>
+            <td>${date}</td>
+            <td>${ingredients}</td>
+          `
+          console.log(newRow)
+          table.appendChild(newRow)
+    
+          // Clear form fields
+          document.getElementById("mealForm").reset();
+        });
+        console.log('<%= meals %>')
+
+        const newDateForm = document.getElementById("dateForm")
+        const newDate = document.getElementById("new_date")
+        newDate.addEventListener("change", () => {
+            console.log("date changed")
+            newDateForm.submit()
+        })
+    </script>
+
+</body>
