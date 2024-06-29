@@ -1,0 +1,99 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    background-color: #ff69b4;
+    padding: 20px;
+    text-align: left;
+    border-radius: 12px;
+}
+
+.header button {
+    background-color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-right: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 8px;
+}
+
+.header h1 {
+    display: inline;
+    color: #fff;
+}
+
+.content {
+    background-color: #e0e0e0;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.date {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.meal-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.meal-card {
+    background-color: #ffb6c1;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.meal-card h2 {
+    margin: 0 0 10px 0;
+    text-align: center;
+}
+
+.meal-card p {
+    margin: 5px 0;
+    text-align: center;
+}
+
+.meal-card table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.meal-card table, .meal-card th, .meal-card td {
+    border: 1px solid #ccc;
+}
+
+.meal-card th, .meal-card td {
+    padding: 10px;
+    text-align: left;
+}
+
+.meal-card .table-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
