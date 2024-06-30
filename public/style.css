@@ -1,0 +1,268 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+h5, p {
+    position: relative;
+    bottom: 10px;
+}
+
+.totalCals {
+    position: relative;
+    bottom: 60px;
+    right: 30px;
+    text-align: center;
+    float: right;
+    height: 50px;
+    width: 50px;
+    border-radius: 25px;
+    border: 1px solid black;
+}
+
+.totalCals p {
+    font-size: 10px;
+}
+
+.main {
+    width: 80%;
+    margin: auto;
+}
+#table_header {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+}
+
+.meal_item {
+    height: 180px;
+    width: 250px;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 25px;
+    background-color: pink;
+    display: inline-block;
+    /* white-space: nowrap; */
+    /* overflow: warp; */
+    /* overflow-wrap: true; */
+    text-overflow: ellipsis;
+    position: relative;
+}
+.meal_name {
+    font-size: 1.5em;
+}
+.header {
+    background-color: pink;
+    height: 80px;
+    width: 100%;
+    padding-left: 30px;
+    margin-bottom: 50px;
+}
+
+.newMealBut {
+    /* background-color:rgb(232, 232, 232); */
+    background-image: linear-gradient(to right, rgb(124, 124, 124) , rgb(255, 255, 255));
+    padding: 30px;
+    width: 120px;
+    height: 120px;
+    margin: auto;
+}
+
+i {
+    color: rgb(185, 185, 185);
+    font-size: 120px;
+}
+
+@keyframes example {
+    0%   {left: 1px; opacity: 1; top: 1px}
+    25%  {left: 5px; top: 5px}
+    50%  {left: 8px; opacity: 0.95; top: 8px}
+    75%  {left: 9px; top: 9px}
+    100% {left: 10px; opacity: 0.8; top: 10px}
+}
+  
+
+.meal_item:hover {
+    left: 10px;
+    top: 10px;
+    opacity: 0.8;
+    animation-name: example;
+    animation-duration: 1s;
+}
+
+
+.mealFormWrapper {
+    margin: auto;
+    width: 300px;
+}
+
+.mealNameWrapper {
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.meal_name, #mealName {
+    border: none;
+    text-decoration: none;
+    display: inline-block;
+}
+
+#mealName {
+    font-size: 20px;
+}
+
+.Edit_meal {
+    text-decoration: none;
+}
+
+
+
+.ingredient {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    row-gap: 15px;
+}
+
+.log_but {
+    background-color: #04AA6D; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 10px;
+    font-size: 16px;
+    display: block;
+    margin: auto;
+}
+
+.ingredient_serves {
+    border: 1px solid black;
+    text-align: center;
+    height: 30px; 
+    text-decoration: none;
+}
+
+
+/* FONTS */
+
+.prompt-thin {
+    font-family: "Prompt", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+}
+
+.prompt-extralight {
+    font-family: "Prompt", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+}
+
+.prompt-light {
+    font-family: "Prompt", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.prompt-regular {
+    font-family: "Prompt", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.prompt-medium {
+    font-family: "Prompt", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.prompt-semibold {
+    font-family: "Prompt", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.prompt-bold {
+    font-family: "Prompt", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.prompt-extrabold {
+    font-family: "Prompt", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+}
+
+.prompt-black {
+    font-family: "Prompt", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+}
+
+.prompt-thin-italic {
+    font-family: "Prompt", sans-serif;
+    font-weight: 100;
+    font-style: italic;
+}
+
+.prompt-extralight-italic {
+    font-family: "Prompt", sans-serif;
+    font-weight: 200;
+    font-style: italic;
+}
+
+.prompt-light-italic {
+    font-family: "Prompt", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.prompt-regular-italic {
+    font-family: "Prompt", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.prompt-medium-italic {
+    font-family: "Prompt", sans-serif;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.prompt-semibold-italic {
+    font-family: "Prompt", sans-serif;
+    font-weight: 600;
+    font-style: italic;
+}
+
+.prompt-bold-italic {
+    font-family: "Prompt", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.prompt-extrabold-italic {
+    font-family: "Prompt", sans-serif;
+    font-weight: 800;
+    font-style: italic;
+}
+
+.prompt-black-italic {
+    font-family: "Prompt", sans-serif;
+    font-weight: 900;
+    font-style: italic;
+}

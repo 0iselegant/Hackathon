@@ -16,6 +16,7 @@ const port = 3000
 app.use(bodyParser.urlencoded({extended: false}))
 app.set('view engine', 'ejs')
 app.set('views','./views')
+app.use(express.static(path.join(__dirname, 'public')))
 
 // GLOBALS
 
@@ -38,7 +39,11 @@ app.get('/', (req, res) => {
   }
   if (d != null) {
     // console.log(d)
-    res.render('index', {"meals" : d.meals})
+    for (let meal of d.meals) {
+      meal.cals = meal.totalCals()
+    }
+    // for (let cal of )
+    res.render('index', {"meals" : d.meals, "totalCals": d.dailyCals()})
   }
 })
 
@@ -46,6 +51,27 @@ app.get('/', (req, res) => {
 
 app.get('/newMeal', (req, res) => {
   res.render('newMeal')
+})
+
+app.get('/editMeal', (req, res) => {
+  var meal = m.getMeal(req.query.id)
+  var ingredients = meal.ingredients
+  res.render("editMeal", {"name": meal.name, "ingredients": ingredients, "INGREDIENTS": m.INGREDIENTS.map(i => i.Name)})
+})
+
+app.post('/editMeal', (req, res) => {
+  for (let name of Object.keys(req.body)) {
+    console.log(name)
+    console.log("id")
+    console.log(req.query.id)
+    if (!name.includes("ingredient: ")) 
+    continue;
+    const ingName = name.split(": ")[1]
+    console.log(ingName)
+    console.log(req.body["mealName"])
+    m.editMeal(req.query.id, req.body["mealName"], { [ingName]: req.body[name]})
+    res.redirect("/editMeal?id=" + req.query.id)
+  }
 })
 
 // route for creating a new meal
@@ -56,10 +82,9 @@ app.post('/newMeal', (req, res) => {
 
 app.post('/setDate', (req, res) => {
   
-  CURR_DATE = req.query.date
-  
-  console.log(req.query.date)
-  // res.redirect('/?date=' + CURR_DATE)
+  CURR_DATE = req.body["new_date"]
+  console.log(CURR_DATE)
+  res.redirect('/')
 })
 
 // editing the ingredients of a meal

@@ -1,0 +1,102 @@
+<head>
+    <link href="style.css" rel="stylesheet">
+  </head>
+  <body class="prompt-regular">
+    <div class="mealFormWrapper">
+      <form id="mealForm" action="#" method="POST">
+          <div class="mealNameWrapper"><input type="text" id="mealName" name="mealName" value="<%=name%>" required></div>
+          
+          <div class="ingredients-list">
+
+        
+          <% for (let ing of ingredients) { %>
+            
+            <div class="ingredient">
+                <div class="ingredient_col_header">
+                    Name
+                </div>
+                <div class="ingredient_col_header">
+                    Calories
+                </div>
+                <div class="ingredient_col_header">
+                    Serves
+                </div>
+              <div class="ingredient_name">
+                <%= ing.item.Name %>
+              </div>
+              <div class="ingredient_calories">
+                <%= ing.getCals() %>
+              </div>
+              <input class="ingredient_serves" name="ingredient: <%=ing.item.Name%>" value="<%=ing.serves%>">
+            </div>
+            
+          <% } %>
+
+            </div>
+
+          <!-- <div class="ingredient">
+            <div class="ingredient_col_header">
+                Name
+            </div>
+            <div class="ingredient_col_header">
+                Calories
+            </div>
+            <div class="ingredient_col_header">
+                Serves
+            </div>
+          
+            
+            <select name="new_ingredient_name">
+                <% for (let ing of INGREDIENTS) { %>
+                <option value="<%=ing%>"><%=ing%></option>
+                <% } %>
+    
+              </select>
+              <input class="new_ingredient_serves" name="new_ingredient_serves">
+              <button class="log_but add_ingredient_button">add</button>
+        </div>   -->
+          <input class="log_but save_log" type="submit" value="Log Meal"></input>
+        </form>
+    </div>
+    <!-- <script>
+        // import m from './meals.js'
+        const INGREDIENTS = [{"Name": "Brown Lentils", "CPS": 100}, {"Name": "Red Lentils", "CPS": 100}, {"Name": "Green Lentils", "CPS": 100}, {"Name": "Yellow Lentils", "CPS": 100}, {"Name": "Mixed Lentils", "CPS": 100}, {"Name": "Banana", "CPS": 75}, {"Name": "Apple", "CPS": 75}, {"Name": "Orange", "CPS": 75}, {"Name": "Cucumber", "CPS": 25}, {"Name": "Tomato", "CPS": 40}, {"Name": "Sweet Potato", "CPS": 300}, {"Name": "Chicken Breast", "CPS": 150},{"Name": "Steak", "CPS": 150}, {"Name": "Sausage", "CPS": 150}, {"Name": "Chicken Schinztel", "CPS": 160}, {"Name": "Pork belly", "CPS": 150}, {"Name": "Milk", "CPS": 80}, {"Name": "Yoghurt", "CPS": 90}, {"Name": "Almonds", "CPS": 180}, {"Name": "Walnuts", "CPS": 180}, {"Name": "Pistacios", "CPS": 180}, {"Name": "Mixed nuts", "CPS": 180}]
+        function getIngredient(name) {
+            for (let ing of INGREDIENTS) {
+                if (ing.Name == name) {
+                    return ing
+                }
+            }
+            return null
+        } 
+        var new_ingredient_but = document.querySelector(".add_ingredient_button")
+        var ingredients_list = document.querySelector(".ingredients-list")
+        var name = document.querySelector(".new_ingredient_name").value
+        var serves = document.querySelector(".new_ingredient_serves").value
+        console.log(name)
+        console.log(serves)
+        new_ingredient_but.addEventListener("click", () => {
+            console.log('clicked')
+            var new_ingredient = document.createElement("div")
+            new_ingredient.className = "ingredient"
+            new_ingredient.innerHTML = `
+                <div class="ingredient_col_header">
+                    Name
+                </div>
+                <div class="ingredient_col_header">
+                    Calories
+                </div>
+                <div class="ingredient_col_header">
+                    Serves
+                </div>
+                <div class="ingredient_name">
+                    ${name}
+                </div>
+                <div class="ingredient_calories">
+                    ${m.getIngredient(name)["CPS"] * serves}
+                </div>
+                <input class="ingredient_serves" name="ingredient:  ${name}" value=" ${serves}">`
+            ingredients_list.appendChild(new_ingredient)
+        })
+    </script> -->
+  </body>

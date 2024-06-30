@@ -1,38 +1,19 @@
 <head>
-    <style>
-        #table_header {
-            width: 100%;
-            display: grid;
-            grid-template-columns: 25% 25% 25%;
-        }
-        .meal_item {
-            height: 300px;
-            width: 180px;
-            border: 1px solid black;
-            border-radius: 10px;
-            padding: 2px;
-            background-color: pink;
-            display: inline-block;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        .meal_name {
-            font-size: 1.5em;
-        }
-        .header {
-            background-color: pink;
-            height: 80px;
-            width: 100%;
-            padding-left: 30px;
-            margin-bottom: 50px;
-        }
-        
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/8b0b5a812e.js" crossorigin="anonymous"></script>
+
+    <link href="style.css" rel="stylesheet">
 </head>
-<body>
+<body class="prompt-regular">
+    <div class="main">
     <header class="header">
-        <h1>Health Logger</h1>
+        <h1>Meal Tracker</h1>
+        <div class="totalCals">
+        <h5><%=totalCals%></h3>
+        <p>daily cals</p>
+        </div>
     </header>
     
     <form id="dateForm" action="/setDate" method="POST">
@@ -40,36 +21,40 @@
     </form>
    
     
-    <div><a href="/newMeal">Add a new meal</a></div>
+    
 
 
     <div id = "table_header">
         <% meals.forEach(function(meal){ %>
             <div class = "meal_item">
+                <a href="/editMeal?id=<%=meal.id%>" class="Edit_meal">Edit</a>
                 <div class = "meal_name"><%= meal.name %></div>
-                <div class = "meal_date"><%= meal.date %></div>
-                <div class = "meal_ingredients"><%= meal.ingredients %></div>
+                <div class= "meal_cals">+ <%= meal.cals %> cals</div>
+                <div class = "meal_ingredients"><%= meal.ingredients.map(i => i.item.Name ) %></div>
             </div>
         <% }); %>
+        <a href="/newMeal" class="newMealBut"><i class="fa-solid fa-plus newMealButIcon" height="120px" widht="120px" style="fill: rgb(192, 192, 192);"></i></a>
     </div>
     
+    </div>
     
     <script>
-
-        // const newDateForm = document.getElementById("dateForm")
+        // <img src = "plus-solid.svg">
+        const newDateForm = document.getElementById("dateForm")
         const newDate = document.getElementById("new_date")
         var newDateValue = null
         newDate.onchange = (e) => {
-            console.log("changed")
-            // if (newDateValue != null && newDateValue != newDate.value) {
-            console.log(newDate.value)
-            fetch("http://localhost:3000/setDate?date=" + newDate.value, 
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-type": "application/json; charset=UTF-8"
-                    }
-                })
+            // console.log("changed")
+            // // if (newDateValue != null && newDateValue != newDate.value) {
+            // console.log(newDate.value)
+            // fetch("http://localhost:3000/setDate?date=" + newDate.value, 
+            //     {
+            //         method: "POST",
+            //         headers: {
+            //             "Content-type": "application/json; charset=UTF-8"
+            //         }
+            //     })
+            newDateForm.submit()
             // } else {
             //     newDateValue = newDate.value
             // }
